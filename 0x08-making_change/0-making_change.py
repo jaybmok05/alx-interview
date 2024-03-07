@@ -23,12 +23,11 @@ def makeChange(coins, total):
     for amount in range(1, total + 1):
         for coin in coins:
             
-                # Calculate the number of coins needed for the remaining amount
-                remaining = amount - coin
-                sub_result = min_coins[remaining]
-
-                # Update the minimum number of coins if the current combination requires fewer coins
-                if sub_result != sys.maxsize and sub_result + 1 < min_coins[amount]:
+            # Calculate the number of coins needed for the remaining amount
+            remaining = amount - coin
+            sub_result = min_coins[remaining]
+            # Update the minimum number of coins if the current combination requires fewer coins
+            if sub_result != sys.maxsize and sub_result + 1 < min_coins[amount]:
                     min_coins[amount] = sub_result + 1
 
     # If the minimum number of coins for the total amount is still sys.maxsize, it means the total cannot be met
